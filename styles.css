@@ -1,0 +1,296 @@
+:root {
+    --primary-color: #fff;
+    --text-color: #ffffff;
+}
+
+/* Подключаем локальный шрифт Unbounded */
+@font-face {
+    font-family: 'Unbounded';
+    src: url('./unbounded/Variable/Unbounded-Variable.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Unbounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: var(--primary-color) url('img/variant=1.png') ;
+    background-size: cover;
+    color: var(--text-color);
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+}
+
+.nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.contact-button {
+    background: var(--text-color);
+    color: var(--primary-color);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.hero {
+    padding: 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.badges {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.badge {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.badge:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.badge.enterprise {
+    background: #0066FF;
+    color: white;
+}
+
+.badge.partner {
+    background: #333;
+    color: white;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.hero-title:hover {
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.4s;
+}
+
+.hero-text {
+    max-width: 600px;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.contact-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+    transform: translateX(10px);
+}
+
+.contact-link::after {
+    content: '→';
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.contact-link:hover::after {
+    transform: translateX(5px);
+}
+
+.clients-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 2rem 0;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.clients {
+    display: flex;
+    animation: scroll 20s linear infinite;
+    width: fit-content;
+}
+
+.clients-slide {
+    display: flex;
+    gap: 4rem;
+    padding: 0 2rem;
+}
+
+.clients img {
+    height: 50px;
+    object-fit: contain;
+    opacity: 0.8;
+    transition: all 0.5s ease;
+    filter: brightness(1);
+}
+
+.clients img:hover {
+    opacity: 1;
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.clients-wrapper::before,
+.clients-wrapper::after {
+    display: none;
+}
+
+.clients:hover {
+    animation-play-state: paused;
+}
+
+/* Декоративные круги */
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    opacity: 0.1;
+    top: -200px;
+    right: -200px;
+    z-index: -1;
+}
+
+.nav-item {
+    position: relative;
+    cursor: pointer;
+    padding-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-item:hover {
+    transform: translateY(-2px);
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--text-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+/* Анимация для языкового переключателя */
+.language {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.language:hover {
+    transform: scale(1.1);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Добавим плавное появление элементов при загрузке */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-title {
+    animation-delay: 0.2s;
+}
+
+.hero-content {
+    animation-delay: 0.4s;
+}
+
+.clients {
+    animation-delay: 0.6s;
+}
+
+.language-selector {
+    position: relative;
+    margin-right: 20px;
+}
+
+#languageSelect {
+    appearance: none;
+    background: transparent;
+    border: none;
+    color: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 5px 20px 5px 10px;
+}
+
+#languageSelect:focus {
+    outline: none;
+}
+
+.language-selector::after {
+    content: "▼";
+    font-size: 8px;
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+} 

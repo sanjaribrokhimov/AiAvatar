@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webflow Partner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="path-to-logo.svg" alt="Digidop">
+        </div>
+        <nav class="nav">
+            <div class="nav-item">Services</div>
+            <div class="nav-item">Use cases</div>
+            <div class="nav-item">Resources</div>
+            <div class="nav-item">About us</div>
+        </nav>
+        <div class="header-right">
+            <div class="language-selector">
+                <select id="languageSelect">
+                    <option value="en">EN</option>
+                    <option value="ru">RU</option>
+                    <option value="uz">UZ</option>
+                </select>
+            </div>
+            <button style="color: black; " class="contact-button">Contact sales</button>
+        </div>
+    </header>
+
+    <main class="hero">
+        <div class="badges">
+            <div class="badge enterprise">Enterprise Partner</div>
+            <div class="badge partner">Professional Partner of the Year</div>
+        </div>
+        
+        <h2 class="hero-title">
+            Your Webflow Partner<br>
+            for building high-performing,<br>
+            scalable Websites
+        </h2>
+
+        <div class="hero-content">
+            <p class="hero-text">
+                Award-winning Webflow agency with a business-first approach. We build 
+                scalable and conversion-focused websites for marketing and IT team.
+            </p>
+            <a href="#" class="contact-link">Contact us </a>
+        </div>
+
+        <div class="clients-wrapper">
+            <div class="clients">
+                <div class="clients-slide">
+                    <img src="img/Claude AI Logo.svg" alt="Claude">
+                    <img src="img/DeepSeek Logo.svg" alt="DeepSeek">
+                    <img src="img/Google Gemini Logo.svg" alt="Gemini">
+                    <img src="img/OpenAI Logo 2025.svg" alt="OpenAI">
+                </div>
+                <div class="clients-slide">
+                    <img src="img/Claude AI Logo.svg" alt="Claude">
+                    <img src="img/DeepSeek Logo.svg" alt="DeepSeek">
+                    <img src="img/Google Gemini Logo.svg" alt="Gemini">
+                    <img src="img/OpenAI Logo 2025.svg" alt="OpenAI">
+                </div>
+                <div class="clients-slide">
+                    <img src="img/Claude AI Logo.svg" alt="Claude">
+                    <img src="img/DeepSeek Logo.svg" alt="DeepSeek">
+                    <img src="img/Google Gemini Logo.svg" alt="Gemini">
+                    <img src="img/OpenAI Logo 2025.svg" alt="OpenAI">
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="translations.js"></script>
+    <script>
+        document.getElementById('languageSelect').addEventListener('change', function() {
+            const selectedLang = this.value;
+            document.documentElement.lang = selectedLang;
+            
+            // Обновляем все переводимые элементы
+            document.querySelector('.nav-item:nth-child(1)').textContent = translations[selectedLang].services;
+            document.querySelector('.nav-item:nth-child(2)').textContent = translations[selectedLang].useCases;
+            document.querySelector('.nav-item:nth-child(3)').textContent = translations[selectedLang].resources;
+            document.querySelector('.nav-item:nth-child(4)').textContent = translations[selectedLang].aboutUs;
+            document.querySelector('.contact-button').textContent = translations[selectedLang].contactSales;
+            document.querySelector('.badge.enterprise').textContent = translations[selectedLang].enterprisePartner;
+            document.querySelector('.badge.partner').textContent = translations[selectedLang].professionalPartner;
+            document.querySelector('.hero-title').textContent = translations[selectedLang].heroTitle;
+            document.querySelector('.hero-text').textContent = translations[selectedLang].heroText;
+            document.querySelector('.contact-link').textContent = translations[selectedLang].contactUs;
+        });
+    </script>
+</body>
+</html> 
