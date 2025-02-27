@@ -412,7 +412,7 @@ h2,h3,h4,h5,h6 {
     }
 
     .hero-text {
-        max-width: 100%;
+        display: none;
     }
 
     .badges {
@@ -425,6 +425,20 @@ h2,h3,h4,h5,h6 {
 
     .language-selector {
         margin-right: 1rem;
+    }
+
+    .contact-link {
+        margin-top: 20px;
+        font-size: 1.3rem;
+        padding: 12px 24px;
+        background: #0066FF;
+        border-radius: 8px;
+        display: inline-block;
+    }
+    
+    .contact-link:hover {
+        background: #0052cc;
+        transform: translateY(-2px);
     }
 }
 
