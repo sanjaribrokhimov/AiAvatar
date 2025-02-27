@@ -58,61 +58,79 @@ h2,h3,h4,h5,h6 {
 }
 
 .contact-button {
-    background: var(--text-color);
-    color: var(--primary-color);
+   
+    color: white;
     border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 4px;
+    padding: 0.9rem 1.8rem;
+    border-radius: 30px;
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
 }
 
 .contact-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 102, 255, 0.4);
+}
+
+.contact-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.6s ease;
+}
+
+.contact-button:hover::before {
+    left: 100%;
 }
 
 .hero {
-    padding: 6rem 4rem 4rem 4rem;
+    padding: 8rem 4rem 4rem 4rem;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.9));
 }
 
-.badges {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('img/variant=1.png') no-repeat center center;
+    background-size: cover;
+    opacity: 0.4;
+    z-index: -1;
+    animation: slowZoom 30s infinite alternate;
 }
 
-.badge {
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-}
-
-.badge:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.badge.enterprise {
-    background: #0066FF;
-    color: white;
-}
-
-.badge.partner {
-    background: #000000;
-    color: white;
+@keyframes slowZoom {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: 2rem;
     line-height: 1.1;
     margin-bottom: 2rem;
     transition: all 0.3s ease;
+    background: linear-gradient(90deg, #fff, #0066FF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 5px 15px rgba(0, 102, 255, 0.3);
 }
 
 .hero-title:hover {
@@ -162,7 +180,6 @@ h2,h3,h4,h5,h6 {
     overflow: hidden;
     position: relative;
     padding: 2rem 0;
-    padding-top: inherit;
 
 }
 
@@ -181,7 +198,7 @@ h2,h3,h4,h5,h6 {
 .clients img {
     height: 50px;
     object-fit: contain;
-    opacity: 0.8;
+    opacity: 0.7;
     transition: all 0.5s ease;
     filter: brightness(0) invert(1);
 }
@@ -189,7 +206,7 @@ h2,h3,h4,h5,h6 {
 .clients img:hover {
     opacity: 1;
     transform: scale(1.1);
-    filter: brightness(0) invert(1) drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
+    filter: brightness(0) invert(1) drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
 }
 
 @keyframes scroll {
@@ -470,17 +487,17 @@ h2,h3,h4,h5,h6 {
 }
 
 .video-container {
-    width: 60%;
+    width: 75%;
     max-width: 1400px;
     aspect-ratio: 16/9;
-    border-radius: 30px;
+    border-radius: 20px;
     overflow: hidden;
     box-shadow: 
         0 0 0 2px rgba(255, 255, 255, 0.1),
-        0 0 30px rgba(255, 255, 255, 0.1),
+        0 0 30px rgba(0, 102, 255, 0.2),
         0 20px 50px rgba(0, 0, 0, 0.5);
     opacity: 0;
-    transform: scale(0.8) translateY(50px);
+    transform: scale(0.9) translateY(50px);
     transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     background: #000;
@@ -490,16 +507,16 @@ h2,h3,h4,h5,h6 {
 .video-container.visible {
     opacity: 1;
     transform: scale(1) translateY(0);
-    width: 90%; /* Увеличиваем ширину при появлении */
+    width: 80%;
 }
 
 .video-container::before {
     content: '';
     position: absolute;
     inset: 0;
-    border-radius: 30px;
-    padding: 2px;
-    background: linear-gradient(45deg, #0066FF, #00FF94);
+    border-radius: 20px;
+    padding: 3px;
+    background: linear-gradient(45deg, #0066FF, #00c6ff);
     -webkit-mask: 
         linear-gradient(#fff 0 0) content-box, 
         linear-gradient(#fff 0 0);
@@ -592,17 +609,26 @@ h2,h3,h4,h5,h6 {
 }
 
 .services-section .services-container {
-    background: #fff;
-    border-radius: 16px;
-    padding: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 24px;
+    padding: 3rem;
     box-shadow: 
-        0 0 0 1px rgba(0, 0, 0, 0.05),
-        0 10px 30px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease;
-    max-width: 1000px; /* Уменьшаем максимальную ширину */
+        0 0 0 1px rgba(255, 255, 255, 0.05),
+        0 20px 50px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    gap: 3rem;
+    gap: 4rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.services-section .services-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        0 30px 60px rgba(0, 0, 0, 0.3);
 }
 
 .service-info {
@@ -619,9 +645,13 @@ h2,h3,h4,h5,h6 {
 }
 
 .service-name {
-    font-size: 2rem; /* Уменьшаем размер заголовка */
-    margin-bottom: 1rem;
-    font-weight: 500;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    background: linear-gradient(90deg, #9a0000, #0066FF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .service-description {
@@ -717,17 +747,17 @@ h2,h3,h4,h5,h6 {
 
 /* Обновляем стили для feature-icon */
 .feature-icon {
-    margin-top: 20px;
-    width: 24px;
-    height: 24px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
-    background: #f5f5f5;
+    background: linear-gradient(45deg, #0066FF, #0052cc);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.9rem;
-    color: #000;
+    font-size: 1rem;
+    color: white;
     flex-shrink: 0;
+    box-shadow: 0 5px 15px rgba(0, 102, 255, 0.3);
 }
 
 
@@ -782,11 +812,26 @@ h2,h3,h4,h5,h6 {
     }
 }
 
-/* Стили для секции Tailored */
+/* Исправляем стили для секции Tailored */
 .tailored-section {
     padding: 6rem 4rem;
-    background: #000;
+    background: linear-gradient(to bottom, #000, #111);
     color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.tailored-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('img/variant=1.png') no-repeat center center;
+    background-size: cover;
+    opacity: 0.1;
+    z-index: 0;
 }
 
 .tailored-title {
@@ -797,6 +842,14 @@ h2,h3,h4,h5,h6 {
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s ease-out;
+    position: relative;
+    z-index: 1;
+    color: white;
+    background: linear-gradient(90deg, #fff, #0066FF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 5px 15px rgba(0, 102, 255, 0.3);
 }
 
 .tailored-section.visible .tailored-title {
@@ -809,19 +862,23 @@ h2,h3,h4,h5,h6 {
     gap: 2rem;
     max-width: 1400px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .solution-card {
     flex: 1;
-    background: rgba(20, 20, 20, 0.5);
-    border-radius: 16px;
-    padding: 2rem;
+    background: rgba(20, 20, 20, 0.7);
+    border-radius: 24px;
+    padding: 2.5rem;
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s ease-out;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
 }
 
 .tailored-section.visible .solution-card {
@@ -829,7 +886,7 @@ h2,h3,h4,h5,h6 {
     transform: translateY(0);
 }
 
-.solution-card:nth-child(2) {
+.tailored-section.visible .solution-card:nth-child(2) {
     transition-delay: 0.2s;
 }
 
@@ -838,23 +895,26 @@ h2,h3,h4,h5,h6 {
     top: 0;
     left: 0;
     width: 100%;
-    height: 200px;
-    background: radial-gradient(circle at top left, rgba(255, 200, 0, 0.2), transparent 70%);
+    height: 300px;
+    background: radial-gradient(circle at top left, rgba(0, 102, 255, 0.2), transparent 70%);
     pointer-events: none;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
 }
 
-.solution-bg.enterprise {
-    background: radial-gradient(circle at top, rgba(255, 200, 0, 0.2), transparent 70%);
+.solution-card:hover .solution-bg {
+    opacity: 0.8;
 }
 
 .enterprise-badge {
     display: inline-block;
-    background: #0066FF;
+    background: linear-gradient(45deg, #0066FF, #0052cc);
     color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
+    padding: 0.5rem 1.2rem;
+    border-radius: 30px;
     font-size: 0.9rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 102, 255, 0.3);
 }
 
 .solution-card h3 {
@@ -1462,9 +1522,21 @@ h2,h3,h4,h5,h6 {
 
 /* Стили для футера */
 .footer {
-    background-color: #111;
-    padding: 40px 0;
+    background-color: rgba(17, 17, 17, 0.95);
+    padding: 60px 0;
     color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
 }
 
 .footer-container {
@@ -1542,17 +1614,34 @@ h2,h3,h4,h5,h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.1);
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 50%;
     transition: all 0.3s ease;
     position: relative;
+    overflow: hidden;
+}
+
+.footer-social a::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #0066FF, #00c6ff);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.footer-social a:hover::before {
+    opacity: 1;
 }
 
 .footer-social a:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .footer-social img {
@@ -1563,22 +1652,6 @@ h2,h3,h4,h5,h6 {
 /* Удаляем изменение яркости при наведении */
 .footer-social a:hover img {
     filter: none;
-}
-
-/* Обновляем стили для градиентной рамки */
-.footer-social a::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    border-radius: 50%;
-    background: linear-gradient(45deg, #0066FF, #00FF94);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1;
-}
-
-.footer-social a:hover::before {
-    opacity: 1;
 }
 
 /* Медиа-запросы для адаптивности футера */
@@ -1824,16 +1897,17 @@ h2,h3,h4,h5,h6 {
 
 .modal-content {
     background: linear-gradient(145deg, rgba(29, 29, 29, 0.95), rgba(17, 17, 17, 0.95));
-    border-radius: 20px;
-    padding: 32px;
+    border-radius: 24px;
+    padding: 40px;
     width: 100%;
-    max-width: 420px;
+    max-width: 450px;
     position: relative;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5);
     transform: scale(0.95);
     opacity: 0;
     transition: all 0.3s ease;
+    backdrop-filter: blur(15px);
 }
 
 .modal.active .modal-content {
@@ -1903,11 +1977,20 @@ h2,h3,h4,h5,h6 {
 .modal-form input,
 .modal-form select,
 .modal-form textarea {
-    padding: 12px;
+    padding: 14px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    font-size: 0.95rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.modal-form input:focus,
+.modal-form select:focus,
+.modal-form textarea:focus {
+    border-color: #0066FF;
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.2);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .modal-form textarea {
@@ -1916,18 +1999,19 @@ h2,h3,h4,h5,h6 {
 }
 
 .modal-form .submit-button {
-    margin-top: 8px;
-    padding: 14px 24px;
-    border-radius: 10px;
+    margin-top: 10px;
+    padding: 16px 28px;
+    border-radius: 12px;
     background: linear-gradient(45deg, #0066FF, #0052cc);
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 500;
-    gap: 8px;
+    gap: 10px;
+    box-shadow: 0 10px 20px -5px rgba(0, 102, 255, 0.4);
 }
 
 .modal-form .submit-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px -10px rgba(0, 102, 255, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px -5px rgba(0, 102, 255, 0.5);
 }
 
 /* Анимации */
@@ -1966,5 +2050,100 @@ h2,h3,h4,h5,h6 {
     .modal-form select,
     .modal-form textarea {
         padding: 10px;
+    }
+}
+
+/* Улучшенные стили для бейджей */
+.badges {
+    display: flex;
+    gap: 1.2rem;
+    margin-bottom: 2.5rem;
+    
+}
+
+.badge {
+    padding: 0.6rem 1.4rem;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    z-index: 1;
+}
+
+.badge::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(30deg);
+    transition: all 0.8s ease;
+    z-index: 2;
+}
+
+.badge:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.badge:hover::after {
+    transform: rotate(30deg) translate(50%, 50%);
+}
+
+.badge.enterprise {
+    background: linear-gradient(135deg, #0066FF, #0052cc);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.badge.partner {
+    background: linear-gradient(135deg, #222, #444);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.badge i {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Добавляем анимацию появления для бейджей */
+.badge {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: badgeFadeIn 0.6s forwards;
+}
+
+.badge.enterprise {
+    animation-delay: 0.2s;
+}
+
+.badge.partner {
+    animation-delay: 0.4s;
+}
+
+@keyframes badgeFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 } 

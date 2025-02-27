@@ -15,6 +15,7 @@
     <link rel="apple-touch-icon" sizes="167x167" href="img/logo_solo.png">
     <meta name="msapplication-TileImage" content="img/logo_solo.png">
     <meta name="msapplication-TileColor" content="#ffffff">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 </head>
 <body>
@@ -47,8 +48,14 @@
 
     <main class="hero">
         <div class="badges">
-            <div class="badge enterprise">Автоматизация Бизнеса</div>
-            <div class="badge partner">Интеграция ИИ</div>
+            <div class="badge enterprise">
+                <i class="fas fa-robot"></i>
+                Автоматизация Бизнеса
+            </div>
+            <div class="badge partner">
+                <i class="fas fa-brain"></i>
+                Интеграция ИИ
+            </div>
         </div>
         
         <h2 style="color: white;" class="hero-title">
@@ -283,13 +290,22 @@
             document.querySelector('.hero-title').textContent = translations[selectedLang].heroTitle;
             document.querySelector('.hero-text').textContent = translations[selectedLang].heroText;
             document.querySelector('.contact-link').textContent = translations[selectedLang].contactUs;
+            
+            // Обновляем модальное окно
+            document.querySelector('.modal-header h2').textContent = translations[selectedLang].modalTitle;
+            document.querySelector('.modal-header p').textContent = translations[selectedLang].modalSubtitle;
+            document.querySelector('label[for="name"]').textContent = translations[selectedLang].name;
+            document.querySelector('label[for="phone"]').textContent = translations[selectedLang].phone;
+            document.querySelector('label[for="service"]').textContent = translations[selectedLang].selectService;
+            document.querySelector('label[for="business"]').textContent = translations[selectedLang].aboutBusiness;
+            document.querySelector('.submit-button span').textContent = translations[selectedLang].submit;
         });
-
+        
         // Получаем элементы
         const modal = document.getElementById('contactModal');
         const contactButtons = document.querySelectorAll('.contact-button, .contact-link');
         const closeButton = document.querySelector('.modal-close');
-
+        
         // Открываем модальное окно при клике на кнопки
         contactButtons.forEach(button => {
             button.addEventListener('click', (e) => {
@@ -298,13 +314,13 @@
                 document.body.style.overflow = 'hidden'; // Запрещаем прокрутку страницы
             });
         });
-
+        
         // Закрываем модальное окно при клике на крестик
         closeButton.addEventListener('click', () => {
             modal.classList.remove('active');
             document.body.style.overflow = ''; // Разрешаем прокрутку страницы
         });
-
+        
         // Закрываем модальное окно при клике вне его области
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
@@ -312,7 +328,7 @@
                 document.body.style.overflow = '';
             }
         });
-
+        
         // Маска для телефона Узбекистана
         const phoneInput = document.getElementById('phone');
         phoneInput.addEventListener('input', function(e) {
@@ -323,16 +339,17 @@
                 e.target.value = '+998' + (x[1] ? ' ' + x[1] : '') + (x[2] ? ' ' + x[2] : '') + (x[3] ? ' ' + x[3] : '') + (x[4] ? ' ' + x[4] : '');
             }
         });
-
+        
         // Обработка отправки формы
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
+            const selectedLang = document.getElementById('languageSelect').value;
+            alert(translations[selectedLang].thankYou);
             modal.classList.remove('active');
             document.body.style.overflow = '';
             this.reset();
         });
-
+        
         // Добавляем обработчик для гамбургер-меню
         const hamburger = document.querySelector('.hamburger');
         const nav = document.querySelector('.nav');
@@ -341,13 +358,64 @@
             hamburger.classList.toggle('active');
             nav.classList.toggle('active');
         });
-
+        
         // Закрываем меню при клике на пункт меню
         document.querySelectorAll('.nav-item').forEach(item => {
             item.addEventListener('click', () => {
                 hamburger.classList.remove('active');
                 nav.classList.remove('active');
             });
+        });
+
+        // Анимация появления видео при скролле
+        const videoContainer = document.querySelector('.video-container');
+        const servicesSection = document.querySelectorAll('.services-section');
+        const tailoredSection = document.querySelector('.tailored-section');
+        
+        // Функция для проверки видимости элемента
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+                rect.bottom >= 0
+            );
+        }
+        
+        // Функция для обработки скролла
+        function handleScroll() {
+            if (isElementInViewport(videoContainer)) {
+                videoContainer.classList.add('visible');
+            }
+            
+            servicesSection.forEach(section => {
+                if (isElementInViewport(section)) {
+                    section.classList.add('visible');
+                }
+            });
+            
+            if (tailoredSection && isElementInViewport(tailoredSection)) {
+                tailoredSection.classList.add('visible');
+                
+                // Добавляем класс visible для карточек решений с задержкой
+                const solutionCards = tailoredSection.querySelectorAll('.solution-card');
+                solutionCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 200 * index);
+                });
+            }
+        }
+        
+        // Запускаем проверку при загрузке и скролле
+        window.addEventListener('load', handleScroll);
+        window.addEventListener('scroll', handleScroll);
+        
+        // Улучшенное воспроизведение видео
+        videoContainer.addEventListener('click', function() {
+            const iframe = document.getElementById('youtubeVideo');
+            iframe.src = iframe.src.replace('autoplay=0', 'autoplay=1');
+            this.classList.add('playing');
         });
     </script>
 </body>

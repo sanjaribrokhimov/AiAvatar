@@ -1,4 +1,65 @@
-
+const translations = {
+    ru: {
+        services: "Главная",
+        useCases: "Создание AI клона",
+        resources: "AI чат-боты",
+        aboutUs: "О нас",
+        contactSales: "Связаться с нами",
+        enterprisePartner: "Автоматизация Бизнеса",
+        professionalPartner: "Интеграция ИИ",
+        heroTitle: "AI который работает за вас: чат-боты и аватары для бизнеса",
+        heroText: "Создаём умных AI-аватаров и чат-ботов которые автоматизируют контент и общение с клиентами, чтобы вы зарабатывали больше, тратя меньше.",
+        contactUs: "Связаться с нами",
+        modalTitle: "Свяжитесь с нами",
+        modalSubtitle: "Заполните форму, и мы свяжемся с вами для обсуждения вашего проекта",
+        name: "Имя*",
+        phone: "Номер телефона*",
+        selectService: "Выберите услугу*",
+        aboutBusiness: "О вашем бизнесе*",
+        submit: "Отправить заявку",
+        thankYou: "Спасибо! Мы свяжемся с вами в ближайшее время."
+    },
+    en: {
+        services: "Home",
+        useCases: "AI Clone Creation",
+        resources: "AI Chatbots",
+        aboutUs: "About Us",
+        contactSales: "Contact Us",
+        enterprisePartner: "Business Automation",
+        professionalPartner: "AI Integration",
+        heroTitle: "AI that works for you: chatbots and avatars for business",
+        heroText: "We create smart AI avatars and chatbots that automate content and customer communication, so you earn more while spending less.",
+        contactUs: "Contact Us",
+        modalTitle: "Contact Us",
+        modalSubtitle: "Fill out the form and we will contact you to discuss your project",
+        name: "Name*",
+        phone: "Phone Number*",
+        selectService: "Select Service*",
+        aboutBusiness: "About Your Business*",
+        submit: "Submit Request",
+        thankYou: "Thank you! We will contact you soon."
+    },
+    uz: {
+        services: "Asosiy",
+        useCases: "AI klon yaratish",
+        resources: "AI chat-botlar",
+        aboutUs: "Biz haqimizda",
+        contactSales: "Biz bilan bog'laning",
+        enterprisePartner: "Biznesni avtomatlashtirish",
+        professionalPartner: "AI integratsiyasi",
+        heroTitle: "Siz uchun ishlaydigan AI: biznes uchun chat-botlar va avatarlar",
+        heroText: "Biz kontent va mijozlar bilan muloqotni avtomatlashtiruvchi aqlli AI avatarlari va chat-botlarini yaratamiz, shunda siz kamroq sarflab, ko'proq daromad olasiz.",
+        contactUs: "Biz bilan bog'laning",
+        modalTitle: "Biz bilan bog'laning",
+        modalSubtitle: "Formani to'ldiring va biz loyihangizni muhokama qilish uchun siz bilan bog'lanamiz",
+        name: "Ism*",
+        phone: "Telefon raqami*",
+        selectService: "Xizmatni tanlang*",
+        aboutBusiness: "Biznesingiz haqida*",
+        submit: "So'rov yuborish",
+        thankYou: "Rahmat! Tez orada siz bilan bog'lanamiz."
+    }
+};
 
 // Добавляем функцию для установки языка на странице
 function setPageLanguage(lang) {
