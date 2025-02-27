@@ -177,27 +177,93 @@
 
 
     <section class="tailored-section">
-        <h2 class="tailored-title">Tailored to your needs<br>and technical challenges</h2>
+        <h2 class="tailored-title">Решения для вашего бизнеса</h2>
         
         <div class="solutions-container">
             <div class="solution-card">
                 <div class="solution-bg"></div>
-                <h3>Marketing Website</h3>
-                <p>By partnering with us, your marketing team will operate more efficiently, while your website sees increased traffic and engagement—thanks to our CMS-first approach and expertise in building sites that rank.</p>
-                <a href="#" class="solution-link">See our Marketing Website solution</a>
+                <div class="title-wrapper">
+                    <h3 style="color: white;">AI Аватар</h3>
+                    <div class="enterprise-badge">Ваш AI аватар</div>
+                </div>
+                <p>Создайте своего цифрового двойника для автоматизации видеоконтента. Ваш AI аватар будет говорить вашим голосом, копировать мимику и создавать профессиональные видео без студийных съёмок. Идеально для блогов, обучающих материалов и бизнес-презентаций.</p>
+                <a href="ai-avatar.html" class="solution-link">Узнать больше об AI аватарах</a>
             </div>
 
             <div class="solution-card">
                 <div class="solution-bg enterprise"></div>
-                <div class="enterprise-badge">Enterprise Partner</div>
-                <h3>Enterprise Website</h3>
-                <p>Enterprise clients need robust solutions: from enhanced security and SSO integration to advanced access controls and large-scale CMS flexibility. Let our experts guide you through your Webflow project with confidence.</p>
-                <a href="#" class="solution-link">See our Enterprise solution</a>
+                <div class="title-wrapper">
+                    <h3 style="color: white;">AI Чат-бот</h3>
+                    <div class="enterprise-badge">AI решение</div>
+                </div>
+                <p>Автоматизируйте общение с клиентами с помощью умного чат-бота. Он работает 24/7, мгновенно отвечает на вопросы, помогает с выбором товаров и оформлением заказов. Интегрируется с популярными мессенджерами и CRM-системами.</p>
+                <a href="ai-chat-bot.html" class="solution-link">Узнать больше о чат-ботах</a>
             </div>
         </div>
     </section>
 
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <img src="img/logo.png" alt="Digidop" class="footer-logo" style="width: 150px;">
+                <p class="footer-copyright">© 2025 Digidop. Все права защищены.</p>
+            </div>
+            
+            <div class="footer-right">
+                <div class="footer-links">
+                    <a href="ai-avatar.html">AI Аватар</a>
+                    <a href="ai-chat-bot.html">AI Чат-бот</a>
+                    <a href="#" class="contact-button">Связаться с нами</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#" target="_blank"><img src="img/telegram.svg" alt="Telegram"></a>
+                    <a href="#" target="_blank"><img src="img/instagram.svg" alt="Instagram"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <button class="modal-close">×</button>
+            <div class="modal-header">
+                <h2>Свяжитесь с нами</h2>
+                <p>Заполните форму, и мы свяжемся с вами для обсуждения вашего проекта</p>
+            </div>
+            <form class="modal-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Имя*</label>
+                    <input type="text" id="name" name="name" required placeholder="Введите ваше имя">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Номер телефона*</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__">
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Выберите услугу*</label>
+                    <select id="service" name="service" required>
+                        <option value="">Выберите услугу</option>
+                        <option value="avatar">AI Аватар</option>
+                        <option value="chatbot">AI Чат-бот</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="business">О вашем бизнесе*</label>
+                    <textarea id="business" name="business" required placeholder="Расскажите кратко о вашем бизнесе"></textarea>
+                </div>
+
+                <button type="submit" class="submit-button">
+                    <span>Отправить заявку</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="currentColor"/>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
 
     <script src="translations.js"></script>
     <script>
@@ -216,6 +282,50 @@
             document.querySelector('.hero-title').textContent = translations[selectedLang].heroTitle;
             document.querySelector('.hero-text').textContent = translations[selectedLang].heroText;
             document.querySelector('.contact-link').textContent = translations[selectedLang].contactUs;
+        });
+
+        // Получаем элементы
+        const modal = document.getElementById('contactModal');
+        const contactButtons = document.querySelectorAll('.contact-button, .contact-link');
+        const closeButton = document.querySelector('.modal-close');
+
+        // Открываем модальное окно при клике на кнопки
+        contactButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Запрещаем прокрутку страницы
+            });
+        });
+
+        // Закрываем модальное окно при клике на крестик
+        closeButton.addEventListener('click', () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; // Разрешаем прокрутку страницы
+        });
+
+        // Закрываем модальное окно при клике вне его области
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Маска для телефона
+        const phoneInput = document.getElementById('phone');
+        phoneInput.addEventListener('input', function(e) {
+            let x = e.target.value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+            e.target.value = !x[2] ? x[1] : '+7 (' + x[2] + ') ' + (x[3] ? x[3] + '-' : '') + (x[4] ? x[4] + '-' : '') + x[5];
+        });
+
+        // Обработка отправки формы
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            this.reset();
         });
 
         // Добавляем обработчик для гамбургер-меню
