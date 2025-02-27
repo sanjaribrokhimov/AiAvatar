@@ -3,50 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webflow Partner</title>
+    <title>Ai-agency</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/logo_solo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/logo_solo.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/logo_solo.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="img/logo_solo.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="img/logo_solo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/logo_solo.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/logo_solo.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="img/logo_solo.png">
+    <meta name="msapplication-TileImage" content="img/logo_solo.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+
 </head>
 <body>
     <header class="header">
         <div class="logo">
-            <img src="path-to-logo.svg" alt="Digidop">
+            <img src="img/logo.png" alt="Digidop" style="width: 200px;">
         </div>
         <nav class="nav">
-            <div class="nav-item">Services</div>
-            <div class="nav-item">Use cases</div>
-            <div class="nav-item">Resources</div>
-            <div class="nav-item">About us</div>
+            <div class="nav-item">Главная</div>
+            <div class="nav-item">Создание AI клона</div>
+            <div class="nav-item">AI чат-боты</div>
+            <div class="nav-item">О нас</div>
         </nav>
         <div class="header-right">
             <div class="language-selector">
                 <select id="languageSelect">
-                    <option value="en">EN</option>
                     <option value="ru">RU</option>
+                    <option value="en">EN</option>
                     <option value="uz">UZ</option>
                 </select>
             </div>
-            <button style="color: black; " class="contact-button">Contact sales</button>
+            <button style="color: black;" class="contact-button">Связаться с нами</button>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
 
     <main class="hero">
         <div class="badges">
-            <div class="badge enterprise">Enterprise Partner</div>
-            <div class="badge partner">Professional Partner of the Year</div>
+            <div class="badge enterprise">Автоматизация Бизнеса</div>
+            <div class="badge partner">Интеграция ИИ</div>
         </div>
         
-        <h2 class="hero-title">
-            Your Webflow Partner<br>
-            for building high-performing,<br>
-            scalable Websites
+        <h2 style="color: white;" class="hero-title">
+            AI, который работает за вас: чат-боты и аватары для бизнеса
+
         </h2>
 
         <div class="hero-content">
             <p class="hero-text">
-                Award-winning Webflow agency with a business-first approach. We build 
-                scalable and conversion-focused websites for marketing and IT team.
+                Создаём умных AI-аватаров и чат-ботов, которые автоматизируют контент и общение с клиентами, чтобы вы зарабатывали больше, тратя меньше.
+
             </p>
-            <a href="#" class="contact-link">Contact us </a>
+            <a href="#" class="contact-link">Связаться с нами</a>
         </div>
 
         <div class="clients-wrapper">
@@ -72,6 +87,118 @@
             </div>
         </div>
     </main>
+
+    <section class="video-section">
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/IuQkztVAz0E?si=Ybolklgc6bd2iAj0&rel=0&enablejsapi=1&controls=1&autoplay=0" 
+                title="YouTube video" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen
+                loading="lazy"
+                id="youtubeVideo">
+            </iframe>
+        </div>
+    </section>
+
+    <section class="services-section">
+        
+        <div class="services-container">
+            <div class="service-info">
+                <div class="feature">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-content">
+                        <h4>Создание AI клона</h4>
+                        <p>Клиенты больше доверяют компаниям с качественными видео в соцсетях. Создавайте профессиональные ролики с AI-аватаром без съёмок и лишних затрат — доверьтесь AI-агентству, которое сделает всё за вас.
+
+                        </p>
+                    </div>
+                </div>
+                <div class="service-features">
+                    <div class="feature">
+                        <div class="feature-icon">✓</div>
+                        <div class="feature-content">
+                            <h4>Создание AI клона</h4>
+                            <p>Ваш цифровой клон, который полностью копирует ваш голос, мимику и даже эмоции!
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature-icon">✓</div>
+                        <div class="feature-content">
+                            <h4>Полный цикл видеопродакшена</h4>
+                            <p>От анализа конкурентов до профессионального монтажа — сделаем 15 видео, которые привлекают внимание и реально продают. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="service-preview">
+                <img src="img/web-design-preview.jpg" alt="Web Design Preview">
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section">
+        <div class="services-container">
+            <div class="service-info">
+                <h3 class="service-name">AI Чат-Бот</h3>
+                <p class="service-description">Бизнес теряет деньги, когда клиенты не получают быстрый ответ. Чат-бот отвечает за секунды, ведёт диалог и доводит до покупки без вашего участия.</p>
+                
+                <div class="service-features">
+                    <div class="feature">
+                        <div class="feature-icon">✓</div>
+                        <div class="feature-content">
+                            <h4>Постоянная связь с клиентами</h4>
+                            <p>Умный чат-бот, который понимает сложные запросы, общается как живой человек и работает 24/7 без перерывов.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature-icon">✓</div>
+                        <div class="feature-content">
+                            <h4>Интеграция с любыми платформами</h4>
+                            <p>Подключим AI Чат-Бота к Instagram, Telegram, WhatsApp, сайту или CRM, чтобы клиенты получали мгновенные ответы в удобном для них канале.</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="service-preview">
+                <img src="img/webflow-preview.jpg" alt="Webflow Development Preview" class="webflow-preview">
+            </div>
+        </div>
+    </section>
+
+
+    <section class="tailored-section">
+        <h2 class="tailored-title">Tailored to your needs<br>and technical challenges</h2>
+        
+        <div class="solutions-container">
+            <div class="solution-card">
+                <div class="solution-bg"></div>
+                <h3>Marketing Website</h3>
+                <p>By partnering with us, your marketing team will operate more efficiently, while your website sees increased traffic and engagement—thanks to our CMS-first approach and expertise in building sites that rank.</p>
+                <a href="#" class="solution-link">See our Marketing Website solution</a>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-bg enterprise"></div>
+                <div class="enterprise-badge">Enterprise Partner</div>
+                <h3>Enterprise Website</h3>
+                <p>Enterprise clients need robust solutions: from enhanced security and SSO integration to advanced access controls and large-scale CMS flexibility. Let our experts guide you through your Webflow project with confidence.</p>
+                <a href="#" class="solution-link">See our Enterprise solution</a>
+            </div>
+        </div>
+    </section>
+
+
+
     <script src="translations.js"></script>
     <script>
         document.getElementById('languageSelect').addEventListener('change', function() {
@@ -89,6 +216,23 @@
             document.querySelector('.hero-title').textContent = translations[selectedLang].heroTitle;
             document.querySelector('.hero-text').textContent = translations[selectedLang].heroText;
             document.querySelector('.contact-link').textContent = translations[selectedLang].contactUs;
+        });
+
+        // Добавляем обработчик для гамбургер-меню
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('.nav');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+
+        // Закрываем меню при клике на пункт меню
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                nav.classList.remove('active');
+            });
         });
     </script>
 </body>
