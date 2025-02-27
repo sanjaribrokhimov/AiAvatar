@@ -100,9 +100,13 @@ h2,h3,h4,h5,h6 {
 }
 
 .hero {
-    padding: 12rem 4rem 6rem;
+    padding: 0 4rem 6rem;
     position: relative;
     overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .hero::before {
@@ -212,7 +216,7 @@ h2,h3,h4,h5,h6 {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-100% - 4rem));
+        transform: translateX(calc(-50% - 4rem));
     }
 }
 
