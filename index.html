@@ -52,13 +52,13 @@
         </div>
         
         <h2 style="color: white;" class="hero-title">
-            AI, который работает за вас: чат-боты и аватары для бизнеса
+            AI который работает за вас: чат-боты и аватары для бизнеса
 
         </h2>
 
         <div class="hero-content">
             <p class="hero-text">
-                Создаём умных AI-аватаров и чат-ботов, которые автоматизируют контент и общение с клиентами, чтобы вы зарабатывали больше, тратя меньше.
+                Создаём умных AI-аватаров и чат-ботов которые автоматизируют контент и общение с клиентами, чтобы вы зарабатывали больше, тратя меньше.
 
             </p>
             <a href="#" class="contact-link">Связаться с нами</a>
@@ -106,10 +106,11 @@
         
         <div class="services-container">
             <div class="service-info">
+                <h3 class="service-name">Создание AI клона</h3>
                 <div class="feature">
-                    <div class="feature-icon">✓</div>
+                    
                     <div class="feature-content">
-                        <h4>Создание AI клона</h4>
+                       
                         <p>Клиенты больше доверяют компаниям с качественными видео в соцсетях. Создавайте профессиональные ролики с AI-аватаром без съёмок и лишних затрат — доверьтесь AI-агентству, которое сделает всё за вас.
 
                         </p>
@@ -238,7 +239,7 @@
 
                 <div class="form-group">
                     <label for="phone">Номер телефона*</label>
-                    <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__">
+                    <input type="tel" id="phone" name="phone" required placeholder="+998 __ ___ __ __">
                 </div>
 
                 <div class="form-group">
@@ -312,11 +313,15 @@
             }
         });
 
-        // Маска для телефона
+        // Маска для телефона Узбекистана
         const phoneInput = document.getElementById('phone');
         phoneInput.addEventListener('input', function(e) {
-            let x = e.target.value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
-            e.target.value = !x[2] ? x[1] : '+7 (' + x[2] + ') ' + (x[3] ? x[3] + '-' : '') + (x[4] ? x[4] + '-' : '') + x[5];
+            let x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,2})(\d{0,3})(\d{0,2})(\d{0,2})/);
+            if (x[1] === '998') {
+                e.target.value = '+' + x[1] + (x[2] ? ' ' + x[2] : '') + (x[3] ? ' ' + x[3] : '') + (x[4] ? ' ' + x[4] : '') + (x[5] ? ' ' + x[5] : '');
+            } else {
+                e.target.value = '+998' + (x[1] ? ' ' + x[1] : '') + (x[2] ? ' ' + x[2] : '') + (x[3] ? ' ' + x[3] : '') + (x[4] ? ' ' + x[4] : '');
+            }
         });
 
         // Обработка отправки формы
